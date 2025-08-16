@@ -1,0 +1,22 @@
+function removeDuplicates(nums: number[]): number {
+  // If the array is empty no unique elements.
+  if (nums.length === 0) {
+    return 0;
+  }
+
+  // 'write' marks the next position 
+  let write = 1;
+
+  // 'read' scans through the array from left to right
+  for (let read = 1; read < nums.length; read++) {
+    // Compare the current value with the last unique we kept (at write-1).
+      if (nums[read] !== nums[write - 1]) {
+      // We've found a new unique value at 'read'.
+          nums[write] = nums[read];
+      write++;
+    }
+    
+  }
+  
+  return write;
+}
